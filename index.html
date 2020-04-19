@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <title>Compound Planetary Gear Tool</title>
+</head>
+
+<body>
+  <h1>Compound Planetary Gear Tool</h1>
+  <button type="button" class="btn btn-primary" id="addstage">Add Stage</button>
+
+  <div class="container-fluid">
+    <div class="row flex-row flex-nowrap" id="mainrow">
+      <div class="col-auto col-stage" id="mainstage">
+        <div class="card border-secondary bg-light">
+          <div class="card-body stage-body">
+
+            <!-- <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button> -->
+
+            <div class="card border-success mb-3">
+              <div class="card-header text-white bg-success">
+                <h4 class="d-inline">Physical Properties</h4>
+                <button class="btn btn-sm btn-light float-right d-inline" type="button">?</button>
+              </div>
+
+              <div class="card-body">
+                <form class="form">
+                  <div class="form-row mb-1">
+                    <div class="col-auto">
+                      <label class="col-form-label col-form-label-sm mr-2">Sun Teeth</label>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary btn-source" index=0>Manual</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item">Manual</a>
+                          <a class="dropdown-item">Calculated</a>
+                          <div class="dropdown-divider"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <input type="number" class="form-control form-control-sm input-teeth input-teeth-sun" value="10">
+                    </div>
+                  </div>
+
+                  <div class="form-row mb-1">
+                    <div class="col-auto">
+                      <label class="col-form-label col-form-label-sm mr-2">Planet Teeth</label>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary btn-source" index=1>Manual</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item">Manual</a>
+                          <a class="dropdown-item">Calculated</a>
+                          <div class="dropdown-divider"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <input type="number" class="form-control form-control-sm input-teeth input-teeth-planet" value="10">
+                    </div>
+                  </div>
+
+                  <div class="form-row align-items-center mb-1">
+                    <div class="col-auto">
+                      <label class="col-form-label col-form-label-sm mr-2">Ring Teeth</label>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary btn-source" index=2>Calculated</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item">Manual</a>
+                          <a class="dropdown-item">Calculated</a>
+                          <div class="dropdown-divider"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <input type="number" class="form-control form-control-sm input-teeth input-teeth-ring" value="30" disabled>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- <div class="card mb-3">
+              <div class="card-header text-white bg-secondary">
+                Motion
+              </div>
+
+              <div class="card-body">
+                <div class="input-group mb-1">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Sun Speed</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Manual</option>
+                    <option>Calculated</option>
+                  </select>
+                  <input type="text" aria-label="Last name" class="form-control input-speed input-sun-speed" value="1">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">?</button>
+                  </div>
+                </div>
+
+                <div class="input-group mb-1">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Planet Speed</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Manual</option>
+                    <option>Calculated</option>
+                  </select>
+                  <input type="text" aria-label="Last name" class="form-control input-speed input-planet-speed">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">?</button>
+                  </div>
+                </div>
+
+                <div class="input-group mb-1">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Carrier Speed</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Manual</option>
+                    <option>Calculated</option>
+                  </select>
+                  <input type="text" aria-label="Last name" class="form-control input-speed input-carrier-speed">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">?</button>
+                  </div>
+                </div>
+
+                <div class="input-group mb-1">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Ring Speed</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Manual</option>
+                    <option>Calculated</option>
+                  </select>
+                  <input type="text" aria-label="Last name" class="form-control input-type-speed input-ring-speed">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">?</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="card border-primary mb-3">
+              <div class="card-header text-white bg-primary">
+                <h4 class="d-inline">Motion</h4>
+                <button class="btn btn-sm btn-light float-right d-inline" type="button">?</button>
+              </div>
+
+              <div class="card-body">
+                <form class="form">
+                  <div class="form-row mb-1">
+                    <div class="col-auto">
+                      <label class="col-form-label col-form-label-sm mr-2">Sun Speed</label>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Manual</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Manual</a>
+                          <a class="dropdown-item" href="#">Calculated</a>
+                          <div class="dropdown-divider"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <input type="number" class="form-control form-control-sm" value="10">
+                    </div>
+                  </div>
+
+                  <div class="form-row align-items-center mb-1">
+                    <div class="col-auto">
+                      <label class="col-form-label col-form-label-sm mr-2">Planet Speed</label>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Manual</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Manual</a>
+                          <a class="dropdown-item" href="#">Calculated</a>
+                          <div class="dropdown-divider"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <input type="number" class="form-control form-control-sm" value="10">
+                    </div>
+                  </div>
+
+                  <div class="form-row align-items-center mb-1">
+                    <div class="col-auto">
+                      <label class="col-form-label col-form-label-sm mr-2">Ring Speed</label>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Manual</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Manual</a>
+                          <a class="dropdown-item" href="#">Calculated</a>
+                          <div class="dropdown-divider"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <input type="number" class="form-control form-control-sm" value="10">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="" id="preview"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/gears.js"></script>
+
+</body>
+
+</html>
